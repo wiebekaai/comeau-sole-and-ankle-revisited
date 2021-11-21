@@ -26,6 +26,6 @@ const BREAKPOINTS = {
 const query = b => `(max-width: ${b}rem)`;
 
 export const QUERIES = {
-  tablet: query(BREAKPOINTS.desktop),
-  phone: query(BREAKPOINTS.laptop)
+  tablet: query(BREAKPOINTS.tablet),
+  phone: query(BREAKPOINTS.phone)
 }
