@@ -23,7 +23,7 @@ const Header = () => {
           <Logo />
         </Side>
         <Nav>
-          <NavLink href="/sale">Sale</NavLink>
+          <NavLink href="/sale">Saleeeeeeeeeeeeeeeeeeeee</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
           <NavLink href="/men">Men</NavLink>
           <NavLink href="/women">Women</NavLink>
@@ -64,6 +64,7 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+  overflow: auto;
 
   @media ${QUERIES.tablet} {
     border-top: 4px solid ${COLORS.gray[900]};
