@@ -51,11 +51,11 @@ const NavLink = styled.a`
   text-transform: uppercase;
   text-decoration: none;
   font-size: ${18/16}rem;
-  color: ${COLORS.gray[900]};
+  color: var(--gray-900);
   font-weight: ${WEIGHTS.medium};
 
   &:first-of-type {
-    color: ${COLORS.secondary};
+    color: var(--secondary);
   }
   
   &:last-of-type {
@@ -66,7 +66,7 @@ const NavLink = styled.a`
 const FooterLink = styled.a`
   display: block;
   width: fit-content;
-  color: ${COLORS.gray[700]};
+  color: var(--gray-700);
   margin-bottom: 14px;
   text-decoration: none;
 
@@ -92,7 +92,7 @@ const Overlay = styled(DialogOverlay)`
 const Content = styled(DialogContent)`
   display: flex;
   flex-direction: column;
-  background: ${COLORS.white};
+  background: var(--white);
   height: 100%;
   width: calc(100% - 3rem);
   padding: 32px;
