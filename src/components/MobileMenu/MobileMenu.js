@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
 
-import { COLORS, QUERIES } from '../../constants';
+import { COLORS, QUERIES, WEIGHTS } from '../../constants';
 
 import UnstyledButton from '../UnstyledButton';
 import Icon from '../Icon';
@@ -13,24 +13,70 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
   return (
     <Overlay isOpen={isOpen} onDismiss={onDismiss}>
       <Content>
-        <button onClick={onDismiss}>Dismiss menu</button>
-        <nav>
-          <a href="/sale">Sale</a>
-          <a href="/new">New&nbsp;Releases</a>
-          <a href="/men">Men</a>
-          <a href="/women">Women</a>
-          <a href="/kids">Kids</a>
-          <a href="/collections">Collections</a>
-        </nav>
-        <footer>
-          <a href="/terms">Terms and Conditions</a>
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/contact">Contact Us</a>
-        </footer>
+        <CloseButton onClick={onDismiss}>
+          <VisuallyHidden>Dismiss menu</VisuallyHidden>
+          <Icon id="close" />
+        </CloseButton>
+        <Nav>
+          <NavLink href="/sale">Sale</NavLink>
+          <NavLink href="/new">New&nbsp;Releases</NavLink>
+          <NavLink href="/men">Men</NavLink>
+          <NavLink href="/women">Women</NavLink>
+          <NavLink href="/kids">Kids</NavLink>
+          <NavLink href="/collections">Collections</NavLink>
+        </Nav>
+        <Footer>
+          <FooterLink href="/terms">Terms and Conditions</FooterLink>
+          <FooterLink href="/privacy">Privacy Policy</FooterLink>
+          <FooterLink href="/contact">Contact Us</FooterLink>
+        </Footer>
       </Content>
     </Overlay>
   );
 };
+
+const CloseButton = styled(UnstyledButton)`
+  align-self: flex-end;
+`;
+
+const Nav = styled.nav`
+  margin-top: auto;
+  margin-bottom: auto;
+`;
+
+const NavLink = styled.a`
+  display: block;
+  width: fit-content;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: ${18/16}rem;
+  color: ${COLORS.gray[900]};
+  font-weight: ${WEIGHTS.medium};
+
+  &:first-of-type {
+    color: ${COLORS.secondary};
+  }
+  
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+`;
+
+const FooterLink = styled.a`
+  display: block;
+  width: fit-content;
+  color: ${COLORS.gray[700]};
+  margin-bottom: 14px;
+  text-decoration: none;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+`;
+
+const Footer = styled.footer`
+`;
 
 const Overlay = styled(DialogOverlay)`
   display: flex;
@@ -44,6 +90,8 @@ const Overlay = styled(DialogOverlay)`
 `;
 
 const Content = styled(DialogContent)`
+  display: flex;
+  flex-direction: column;
   background: ${COLORS.white};
   height: 100%;
   width: calc(100% - 3rem);
